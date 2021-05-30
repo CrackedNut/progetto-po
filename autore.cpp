@@ -1,6 +1,6 @@
 #include "autore.h"
 
-Autore::Autore():StrutturaBase() {}
+Autore::Autore() {}
 
 QString Autore::get_cognome() {return cognome;}
 QVector<QString> Autore::get_afferenze() {return afferenze;}

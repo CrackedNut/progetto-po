@@ -10,12 +10,12 @@ private:
 
 public:
     StrutturaBase();
+
     QString get_id();
     QString get_nome();
 
     void set_id(QString);
     void set_nome(QString);
-
 };
 
 #endif // STRUTTURABASE_H

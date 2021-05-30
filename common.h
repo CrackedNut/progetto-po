@@ -6,8 +6,7 @@
 #include <QListWidget>
 #include <QDate>
 
-struct helper_functions {
-    virtual void refresh_list(QListWidget*) {}
-};
+#include "fillerror.h"
+#include "lineinputdialog.h"
 
 #endif // COMMON_H

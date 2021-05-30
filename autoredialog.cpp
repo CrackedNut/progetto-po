@@ -7,11 +7,12 @@ autoreDialog::autoreDialog(QWidget *parent) :
     ui(new Ui::autoreDialog)
 {
     ui->setupUi(this);
+
+    setWindowTitle("Aggiungi Autore");
 }
 
 autoreDialog::~autoreDialog()
 {
-    switchUiElements(true);
     delete ui;
 }
 
@@ -66,16 +67,15 @@ void autoreDialog::on_minus_button_clicked()
 
 }
 
-void autoreDialog::switchUiElements(bool b)
+void autoreDialog::switchUiElements()
 {
-    ui->buttonBox->setVisible(b);
-    ui->nome_box->setReadOnly(!b);
-    ui->cognome_box->setReadOnly(!b);
-    ui->id_box->setReadOnly(!b);
-    ui->minus_button->setVisible(b);
-    ui->plus_button->setVisible(b);
-    if(!b){setWindowTitle("Autore");}
-    else{setWindowTitle("Aggiungi Autore");}
+    ui->buttonBox->setVisible(false);
+    ui->nome_box->setReadOnly(true);
+    ui->cognome_box->setReadOnly(true);
+    ui->id_box->setReadOnly(true);
+    ui->minus_button->setVisible(false);
+    ui->plus_button->setVisible(false);
+    setWindowTitle("Autore");
 }
 
 void autoreDialog::fill_info(Autore a)

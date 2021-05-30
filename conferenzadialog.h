@@ -3,11 +3,7 @@
 
 #include <QDialog>
 
-#include "mainwindow.h"
 #include "all_data.h"
-
-#include "fillerror.h"
-#include "lineinputdialog.h"
 
 namespace Ui {
 class conferenzaDialog;
@@ -21,9 +17,8 @@ public:
     explicit conferenzaDialog(QWidget *parent = nullptr);
     ~conferenzaDialog();
 
-    void refresh_org_list();
     void fill_info(Conferenza);
-    void switchUiElements(bool);
+    void switchUiElements();
 
 private slots:
     void on_buttonBox_accepted();
@@ -39,6 +34,8 @@ private:
     QDate data;
     QVector<QString> organizzatori;
     int partecipanti;
+
+    void refresh_org_list();
 };
 
 #endif // CONFERENZADIALOG_H

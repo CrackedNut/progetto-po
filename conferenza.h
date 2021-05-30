@@ -2,7 +2,6 @@
 #define CONFERENZA_H
 
 #include "strutturabase.h"
-#include "common.h"
 
 class Conferenza : public StrutturaBase
 {

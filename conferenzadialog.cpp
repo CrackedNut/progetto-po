@@ -6,11 +6,11 @@ conferenzaDialog::conferenzaDialog(QWidget *parent) :
     ui(new Ui::conferenzaDialog)
 {
     ui->setupUi(this);
+    setWindowTitle("Aggiungi Conferenza");
 }
 
 conferenzaDialog::~conferenzaDialog()
 {
-    switchUiElements(true);
     delete ui;
 }
 
@@ -23,7 +23,7 @@ void conferenzaDialog::on_buttonBox_accepted()
     data = ui->data_box->date();
     partecipanti = ui->partecipanti_box->value();
 
-    if(id.length() > 0 && nome.length() > 0 && luogo.length() > 0 && organizzatori.size() > 0)
+    if(id.length() * nome.length() * luogo.length() * organizzatori.size() != 0)
     {
         cTemp.set_id(id);
         cTemp.set_nome(nome);
@@ -41,24 +41,24 @@ void conferenzaDialog::on_buttonBox_accepted()
 
 }
 
-void conferenzaDialog::switchUiElements(bool b)
+void conferenzaDialog::switchUiElements()
 {
-    ui->acronimo_box->setReadOnly(!b);
-    ui->nome_box->setReadOnly(!b);
-    ui->luogo_box->setReadOnly(!b);
-    ui->data_box->setReadOnly(!b);
-    ui->buttonBox->setVisible(b);
-    ui->plus_button->setVisible(b);
-    ui->minus_button->setVisible(b);
-    ui->partecipanti_box->setReadOnly(!b);
-    if(!b){setWindowTitle("Conferenza");}
-    else{setWindowTitle("Aggiungi Conferenza");}
+    ui->acronimo_box->setReadOnly(true);
+    ui->nome_box->setReadOnly(true);
+    ui->luogo_box->setReadOnly(true);
+    ui->data_box->setReadOnly(true);
+    ui->buttonBox->setVisible(false);
+    ui->plus_button->setVisible(false);
+    ui->minus_button->setVisible(false);
+    ui->partecipanti_box->setReadOnly(true);
+    setWindowTitle("Conferenza");
 }
 
 void conferenzaDialog::refresh_org_list()
 {
     ui->organizzatori_list->clear();
-    foreach(QString s, organizzatori)    {
+    foreach(QString s, organizzatori)
+    {
         ui->organizzatori_list->addItem(s);
     }
 }

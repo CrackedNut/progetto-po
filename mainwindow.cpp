@@ -3,6 +3,8 @@
 
 #include "autoredialog.h"
 #include "conferenzadialog.h"
+#include "rivistadialog.h"
+#include "articolodialog.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -19,7 +21,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_addAutoreButton_clicked()
 {
-    autoreDialog dialog(nullptr);
+    autoreDialog dialog;
     //dialog.switchUiElements(true);
     dialog.exec();
     refresh_autori_list();
@@ -46,7 +48,7 @@ void MainWindow::on_approfondisci_autore_clicked()
 
     autoreDialog dialog;
     dialog.fill_info(a);
-    dialog.switchUiElements(false);
+    dialog.switchUiElements();
     dialog.exec();
 
 }
@@ -78,9 +80,48 @@ void MainWindow::on_approfondisci_conferenza_clicked()
         c = conferenze[ui->conferenze_list->row(item)];
     }
 
-    conferenzaDialog* dialog = new conferenzaDialog;
-    dialog->fill_info(c);
-    dialog->switchUiElements(false);
-    dialog->exec();
+    conferenzaDialog dialog;
+    dialog.fill_info(c);
+    dialog.switchUiElements();
+    dialog.exec();
 }
 
+
+void MainWindow::on_addRivistaButton_clicked()
+{
+    rivistaDialog dialog;
+    dialog.exec();
+    refresh_riviste_list();
+
+}
+
+void MainWindow::refresh_riviste_list()
+{
+    ui->riviste_list->clear();
+    foreach(Rivista r, riviste)
+        ui->riviste_list->addItem(r.get_nome());
+}
+
+void MainWindow::on_approfondisci_rivista_clicked()
+{
+    Rivista r;
+    QList<QListWidgetItem*> items = ui->riviste_list->selectedItems();
+    foreach(QListWidgetItem* item, items)
+    {
+        r = riviste[ui->riviste_list->row(item)];
+    }
+
+    rivistaDialog dialog;
+    dialog.fill_info(r);
+    dialog.switchUiElements();
+    dialog.exec();
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    articoloDialog dialog;
+    dialog.exec();
+    /*f (a == 1)
+        refresh_articoli_list();*/
+}

@@ -12,7 +12,6 @@ lineInputDialog::lineInputDialog(QWidget *parent, QVector<QString>* v) :
 
 lineInputDialog::~lineInputDialog()
 {
-    //parentDialog->refresh_afferenze_list();
     delete ui;
 }
 

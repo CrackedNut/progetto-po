@@ -1,13 +1,10 @@
-#ifndef AUTOREDIALOG_H
+    #ifndef AUTOREDIALOG_H
 #define AUTOREDIALOG_H
 
 #include <QDialog>
 
-#include "mainwindow.h"
 #include "all_data.h"
 
-#include "fillerror.h"
-#include "lineinputdialog.h"
 
 namespace Ui {
 class autoreDialog;
@@ -23,7 +20,7 @@ public:
 
     void refresh_afferenze_list();
     void fill_info(Autore);
-    void switchUiElements(bool);
+    void switchUiElements();
 
 private slots:
     void on_buttonBox_accepted();
