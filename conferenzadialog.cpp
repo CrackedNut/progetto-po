@@ -54,13 +54,11 @@ void conferenzaDialog::switchUiElements()
     setWindowTitle("Conferenza");
 }
 
-void conferenzaDialog::refresh_org_list()
+void conferenzaDialog::refresh_list(QVector<QString> v, QListWidget* w)
 {
-    ui->organizzatori_list->clear();
-    foreach(QString s, organizzatori)
-    {
-        ui->organizzatori_list->addItem(s);
-    }
+    w->clear();
+    foreach(QString a, v)
+        w->addItem(a);
 }
 
 void conferenzaDialog::fill_info(Conferenza c)
@@ -70,10 +68,7 @@ void conferenzaDialog::fill_info(Conferenza c)
     ui->luogo_box->setText(c.get_luogo());
     ui->data_box->setDate(c.get_data());
     ui->partecipanti_box->setValue(c.get_partecipanti());
-    foreach(QString s, c.get_organizzatori())
-    {
-        ui->organizzatori_list->addItem(s);
-    }
+    ui->organizzatori_list->addItems(organizzatori);
 }
 
 
@@ -81,7 +76,7 @@ void conferenzaDialog::on_plus_button_clicked()
 {
     lineInputDialog dialog(nullptr, &organizzatori);
     dialog.exec();
-    refresh_org_list();
+    refresh_list(organizzatori, ui->organizzatori_list);
 }
 
 

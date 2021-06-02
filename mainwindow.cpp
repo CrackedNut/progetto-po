@@ -5,6 +5,7 @@
 #include "conferenzadialog.h"
 #include "rivistadialog.h"
 #include "articolodialog.h"
+#include "genericlistdialog.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -118,10 +119,125 @@ void MainWindow::on_approfondisci_rivista_clicked()
 }
 
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_addArticoloButton_clicked()
 {
     articoloDialog dialog;
     dialog.exec();
-    /*f (a == 1)
-        refresh_articoli_list();*/
+    refresh_articoli_list();
 }
+
+void MainWindow::refresh_articoli_list()
+
+{
+    ui->articoli_list->clear();
+    foreach(Articolo a, articoli)
+        ui->articoli_list->addItem(a.get_nome());
+}
+
+void MainWindow::on_approfondisci_articolo_clicked()
+{
+    Articolo a;
+    QList<QListWidgetItem*> items = ui->articoli_list->selectedItems();
+    foreach(QListWidgetItem* item, items)
+    {
+        a = articoli[ui->articoli_list->row(item)];
+    }
+    articoloDialog dialog;
+
+    dialog.fill_info(a);
+    dialog.switchUiElements();
+    dialog.exec();
+
+}
+
+
+void MainWindow::on_articoli_autore_clicked()
+{
+    Autore a;
+
+    QList<QListWidgetItem*> items = ui->autori_list->selectedItems();
+    foreach(QListWidgetItem* item, items)
+    {
+        a = autori[ui->autori_list->row(item)];
+    }
+
+    genericListDialog dialog;
+    dialog.changeUI("author");
+    dialog.fill_articoliAutore_list(a);
+    dialog.exec();
+}
+
+void MainWindow::on_byKeywordButton_clicked()
+{
+    genericListDialog dialog;
+    dialog.changeUI("byKeyword");
+    dialog.exec();
+}
+
+
+void MainWindow::on_byRivistaButton_clicked()
+{
+    genericListDialog dialog;
+    dialog.changeUI("byRivista");
+    dialog.exec();
+
+}
+
+
+void MainWindow::on_byConferenza_clicked()
+{
+    genericListDialog dialog;
+    dialog.changeUI("byConferenza");
+    dialog.exec();
+}
+
+
+void MainWindow::on_byConferenza_2_clicked()
+{
+    genericListDialog dialog;
+    dialog.changeUI("byAuthorPriceLow");
+    dialog.exec();
+}
+
+
+void MainWindow::on_byConferenza_3_clicked()
+{
+    genericListDialog dialog;
+    dialog.changeUI("byAuthorPriceHigh");
+    dialog.exec();
+}
+
+
+void MainWindow::on_ordinaAutoreAnno_clicked()
+{
+    genericListDialog dialog;
+    dialog.changeUI("byAuthorYear");
+    dialog.exec();
+}
+
+
+
+
+void MainWindow::on_filtraAutoreAnno_clicked()
+{
+    genericListDialog dialog;
+    dialog.changeUI("filterAuthorYear");
+    dialog.exec();
+}
+
+
+void MainWindow::on_ordinaAutoreAnno_2_clicked()
+{
+    genericListDialog dialog;
+    dialog.changeUI("byKeywordPriceHigh");
+    dialog.exec();
+}
+
+
+void MainWindow::on_ordina_speciale_clicked()
+{
+    genericListDialog dialog;
+    dialog.changeUI("byAuthorSpecial");
+    dialog.exec();
+}
+

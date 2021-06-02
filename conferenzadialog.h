@@ -35,7 +35,7 @@ private:
     QVector<QString> organizzatori;
     int partecipanti;
 
-    void refresh_org_list();
+    void refresh_list(QVector<QString>, QListWidget*);
 };
 
 #endif // CONFERENZADIALOG_H

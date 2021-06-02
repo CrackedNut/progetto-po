@@ -58,5 +58,5 @@ void rivistaDialog::switchUiElements()
     ui->nome_box->setReadOnly(true);
     ui->editore_box->setReadOnly(true);
     ui->volume_box->setReadOnly(true);
-        setWindowTitle("Rivista");
+    setWindowTitle("Rivista");
 }

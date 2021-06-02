@@ -42,6 +42,13 @@
            </widget>
           </item>
           <item>
+           <widget class="QPushButton" name="articoli_autore">
+            <property name="text">
+             <string>Visualizza articoli</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <spacer name="verticalSpacer">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
@@ -245,9 +252,9 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab">
+      <widget class="QWidget" name="articoli_tab">
        <attribute name="title">
-        <string>Page</string>
+        <string>Articoli</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_9">
         <item row="0" column="0">
@@ -260,7 +267,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>640</width>
+             <width>504</width>
              <height>488</height>
             </rect>
            </property>
@@ -281,7 +288,7 @@
              <number>0</number>
             </property>
             <item row="0" column="0">
-             <widget class="QListWidget" name="listWidget"/>
+             <widget class="QListWidget" name="articoli_list"/>
             </item>
            </layout>
           </widget>
@@ -290,16 +297,16 @@
         <item row="0" column="1">
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="addArticoloButton">
             <property name="text">
              <string>Aggiungi Articolo</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="approfondisci_articolo">
             <property name="text">
-             <string>PushButton</string>
+             <string>Informazioni Articolo</string>
             </property>
            </widget>
           </item>
@@ -315,6 +322,69 @@
              </size>
             </property>
            </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="byKeywordButton">
+            <property name="text">
+             <string>Filtra per keyword</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="byRivistaButton">
+            <property name="text">
+             <string>Filtra per rivista</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="byConferenza">
+            <property name="text">
+             <string>Filtra per conferenza</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="filtraAutoreAnno">
+            <property name="text">
+             <string>Filtra per autore e anno</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="byConferenza_2">
+            <property name="text">
+             <string>Ordina per autore e prezzo crescente</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="byConferenza_3">
+            <property name="text">
+             <string>Ordina per autore e prezzo decrescente</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="ordinaAutoreAnno">
+            <property name="text">
+             <string>Ordina per autore e anno</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="ordinaAutoreAnno_2">
+            <property name="text">
+             <string>Ordina totale prezzo keyword</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="ordina_speciale">
+            <property name="text">
+             <string>Ordina speciale</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>

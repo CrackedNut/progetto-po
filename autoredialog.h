@@ -18,7 +18,7 @@ public:
     explicit autoreDialog(QWidget *parent = nullptr);
     ~autoreDialog();
 
-    void refresh_afferenze_list();
+    void refresh_list(QVector<QString>, QListWidget*);
     void fill_info(Autore);
     void switchUiElements();
 
@@ -30,6 +30,8 @@ private slots:
 
 private:
     Ui::autoreDialog *ui;
+
+    double mediaArticoli(Autore a);
 
     QString id, nome, cognome;
     QVector<QString> afferenze;

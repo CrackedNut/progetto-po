@@ -14,120 +14,10 @@
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="1">
-    <widget class="QLineEdit" name="titolo_box"/>
-   </item>
-   <item row="3" column="1" colspan="2">
-    <widget class="QListView" name="autori_box"/>
-   </item>
-   <item row="0" column="1">
-    <widget class="QLineEdit" name="id_box"/>
-   </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="titolo_label">
-     <property name="text">
-      <string>(*) Titolo</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="1" colspan="2">
-    <widget class="QListView" name="correlati_box"/>
-   </item>
-   <item row="5" column="0">
-    <widget class="QLabel" name="coreelati_label">
-     <property name="text">
-      <string>Articoli correlati</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="pagine_label">
-     <property name="text">
-      <string>(*) Numero pagine</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="1" colspan="2">
-    <widget class="QListView" name="keywords_box"/>
+   <item row="8" column="1">
+    <widget class="QLineEdit" name="nome_origine_box"/>
    </item>
    <item row="4" column="3">
-    <layout class="QVBoxLayout" name="verticalLayout_2">
-     <item>
-      <widget class="QToolButton" name="keywords_plus">
-       <property name="minimumSize">
-        <size>
-         <width>25</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>+</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QToolButton" name="keywords_minus">
-       <property name="minimumSize">
-        <size>
-         <width>25</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>-</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="verticalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
-   </item>
-   <item row="7" column="0" colspan="2">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0">
-    <widget class="QLabel" name="id_label">
-     <property name="text">
-      <string>(*) Id</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1">
-    <widget class="QSpinBox" name="spinBox"/>
-   </item>
-   <item row="4" column="0">
-    <widget class="QLabel" name="keywords_label">
-     <property name="text">
-      <string>(*) Keywords</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0">
-    <widget class="QLabel" name="autori_label">
-     <property name="text">
-      <string>(*) Autori</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="3">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QToolButton" name="autori_plus">
@@ -170,7 +60,137 @@
      </item>
     </layout>
    </item>
-   <item row="6" column="1">
+   <item row="1" column="0">
+    <widget class="QLabel" name="titolo_label">
+     <property name="text">
+      <string>(*) Titolo</string>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="0" colspan="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="1">
+    <widget class="QDoubleSpinBox" name="prezzo_box"/>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLineEdit" name="id_box"/>
+   </item>
+   <item row="5" column="3">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QToolButton" name="keywords_plus">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+       <property name="autoRaise">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="keywords_minus">
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="autori_label">
+     <property name="text">
+      <string>(*) Autori</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="keywords_label">
+     <property name="text">
+      <string>(*) Keywords</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0">
+    <widget class="QLabel" name="nome_origine_label">
+     <property name="text">
+      <string>(*) Nome origine</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="QLabel" name="origine_label">
+     <property name="text">
+      <string>Origine</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="titolo_box"/>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="pagine_label">
+     <property name="text">
+      <string>Numero pagine</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QSpinBox" name="pagine_box">
+     <property name="minimum">
+      <number>1</number>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1" colspan="2">
+    <widget class="QListWidget" name="correlati_box"/>
+   </item>
+   <item row="6" column="0">
+    <widget class="QLabel" name="coreelati_label">
+     <property name="text">
+      <string>Articoli correlati</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1" colspan="2">
+    <widget class="QListWidget" name="keywords_box"/>
+   </item>
+   <item row="7" column="1">
     <layout class="QVBoxLayout" name="verticalLayout_4">
      <item>
       <widget class="QRadioButton" name="conferenza_radio">
@@ -194,10 +214,37 @@
      </item>
     </layout>
    </item>
-   <item row="6" column="0">
-    <widget class="QLabel" name="origine_label">
+   <item row="4" column="1" colspan="2">
+    <widget class="QListWidget" name="autori_box"/>
+   </item>
+   <item row="9" column="0">
+    <widget class="QLabel" name="prezzo_label">
      <property name="text">
-      <string>(*) Origine</string>
+      <string>Prezzo</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="id_label">
+     <property name="text">
+      <string>(*) Id</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QDateEdit" name="data_box">
+     <property name="displayFormat">
+      <string>dd-MM-yyyy</string>
+     </property>
+     <property name="calendarPopup">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="data_label">
+     <property name="text">
+      <string>(*) Data</string>
      </property>
     </widget>
    </item>
@@ -212,8 +259,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
+     <x>256</x>
+     <y>491</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -228,8 +275,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
+     <x>324</x>
+     <y>491</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>

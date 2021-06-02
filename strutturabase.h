@@ -5,14 +5,14 @@
 
 class StrutturaBase
 {
-private:
+protected:
     QString id, nome;
 
 public:
     StrutturaBase();
 
-    QString get_id();
-    QString get_nome();
+    const QString get_id();
+    const QString get_nome();
 
     void set_id(QString);
     void set_nome(QString);

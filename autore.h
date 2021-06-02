@@ -9,11 +9,13 @@ public:
     Autore();
     QString get_cognome();
     QVector<QString> get_afferenze();
+    QString get_nc();
 
     void set_cognome(QString);
     void set_afferenze(QVector<QString>);
+    void set_nc();
 private:
-    QString cognome;
+    QString cognome, nc;
     QVector<QString> afferenze;
 };
 

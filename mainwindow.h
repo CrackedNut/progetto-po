@@ -33,7 +33,29 @@ private slots:
 
     void on_approfondisci_rivista_clicked();
 
-    void on_pushButton_clicked();
+    void on_addArticoloButton_clicked();
+
+    void on_approfondisci_articolo_clicked();
+
+    void on_articoli_autore_clicked();
+
+    void on_byKeywordButton_clicked();
+
+    void on_byRivistaButton_clicked();
+
+    void on_byConferenza_clicked();
+
+    void on_byConferenza_2_clicked();
+
+    void on_byConferenza_3_clicked();
+
+    void on_ordinaAutoreAnno_clicked();
+
+    void on_filtraAutoreAnno_clicked();
+
+    void on_ordinaAutoreAnno_2_clicked();
+
+    void on_ordina_speciale_clicked();
 
 private:
     Ui::MainWindow *ui;

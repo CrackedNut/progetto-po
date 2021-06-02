@@ -16,11 +16,13 @@ SOURCES += \
     conferenza.cpp \
     conferenzadialog.cpp \
     fillerror.cpp \
+    genericlistdialog.cpp \
     lineinputdialog.cpp \
     main.cpp \
     mainwindow.cpp \
     rivista.cpp \
     rivistadialog.cpp \
+    sorting.cpp \
     strutturabase.cpp
 
 HEADERS += \
@@ -33,10 +35,13 @@ HEADERS += \
     conferenza.h \
     conferenzadialog.h \
     fillerror.h \
+    genericlistdialog.h \
+    json.hpp \
     lineinputdialog.h \
     mainwindow.h \
     rivista.h \
     rivistadialog.h \
+    sorting.h \
     strutturabase.h
 
 FORMS += \
@@ -44,6 +49,7 @@ FORMS += \
     autoredialog.ui \
     conferenzadialog.ui \
     fillerror.ui \
+    genericlistdialog.ui \
     lineinputdialog.ui \
     mainwindow.ui \
     rivistadialog.ui
@@ -52,3 +58,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    all_data.json

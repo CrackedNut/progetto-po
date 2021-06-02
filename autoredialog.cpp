@@ -9,6 +9,8 @@ autoreDialog::autoreDialog(QWidget *parent) :
     ui->setupUi(this);
 
     setWindowTitle("Aggiungi Autore");
+    ui->media_label->setVisible(false);
+    ui->mediabox->setVisible(false);
 }
 
 autoreDialog::~autoreDialog()
@@ -29,6 +31,7 @@ void autoreDialog::on_buttonBox_accepted()
         aTemp.set_nome(nome);
         aTemp.set_cognome(cognome);
         aTemp.set_afferenze(afferenze);
+        aTemp.set_nc();
         autori.push_back(aTemp);
     }
     else
@@ -44,17 +47,15 @@ void autoreDialog::on_plus_button_clicked()
 {
     lineInputDialog dialog(nullptr, &afferenze);
     dialog.exec();
-    refresh_afferenze_list();
+    refresh_list(afferenze, ui->afferenze_list_2);
 }
 
-void autoreDialog::refresh_afferenze_list()
+void autoreDialog::refresh_list(QVector<QString> v, QListWidget* w)
 {
-    ui->afferenze_list_2->clear();
-    foreach(QString s, afferenze)    {
-        ui->afferenze_list_2->addItem(s);
-    }
+    w->clear();
+    foreach(QString a, v)
+        w->addItem(a);
 }
-
 
 void autoreDialog::on_minus_button_clicked()
 {
@@ -76,18 +77,31 @@ void autoreDialog::switchUiElements()
     ui->minus_button->setVisible(false);
     ui->plus_button->setVisible(false);
     setWindowTitle("Autore");
+    ui->media_label->setVisible(true);
+    ui->mediabox->setVisible(true);
 }
 
 void autoreDialog::fill_info(Autore a)
 {
-
     ui->nome_box->setText(a.get_nome());
     ui->cognome_box->setText(a.get_cognome());
     ui->id_box->setText(a.get_id());
     ui->afferenze_list_2->clear();
-    foreach(QString s, a.get_afferenze())
-    {
-        ui->afferenze_list_2->addItem(s);
-    }
+    ui->afferenze_list_2->addItems(afferenze);
+    ui->mediabox->setText(QString::number(mediaArticoli(a)));
+}
 
+double autoreDialog::mediaArticoli(Autore a)
+{
+    int c = 0;
+    double tot = 0;
+    foreach(Articolo art, articoli)
+    {
+        if(art.get_autori().indexOf(a.get_nc()) != -1)
+        {
+            c++;
+            tot += art.get_prezzo();
+        }
+    }
+    return (tot/c);
 }

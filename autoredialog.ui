@@ -20,7 +20,31 @@
    <string>Autore</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="4" column="0" colspan="3">
+   <item row="2" column="0">
+    <widget class="QLabel" name="id_label">
+     <property name="text">
+      <string>(*) Id</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="afferenze_label">
+     <property name="text">
+      <string>Afferenze</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="cognome_box"/>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="cognome_label">
+     <property name="text">
+      <string>(*) Cognome</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0" colspan="3">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -82,35 +106,31 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="1">
-    <widget class="QLineEdit" name="cognome_box"/>
-   </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="cognome_label">
-     <property name="text">
-      <string>(*) Cognome</string>
-     </property>
-    </widget>
-   </item>
    <item row="2" column="1">
     <widget class="QLineEdit" name="id_box"/>
    </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="id_label">
-     <property name="text">
-      <string>(*) Id</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0">
-    <widget class="QLabel" name="afferenze_label">
-     <property name="text">
-      <string>Afferenze</string>
-     </property>
-    </widget>
-   </item>
    <item row="3" column="1">
     <widget class="QListWidget" name="afferenze_list_2"/>
+   </item>
+   <item row="4" column="1">
+    <widget class="QLineEdit" name="mediabox">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="media_label">
+     <property name="text">
+      <string>Media prezzi articoli</string>
+     </property>
+     <property name="wordWrap">
+      <bool>false</bool>
+     </property>
+     <property name="openExternalLinks">
+      <bool>false</bool>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
