@@ -119,3 +119,25 @@ QVector<std::tuple<QString, double>> sorting::bubblesorthighkeyword(QVector<std:
     return sorted;
 }
 
+QVector<QString> sorting::sortKeywordRecurrence()
+{
+    QVector<QString> tmp;
+    QVector<tuple<QString, double>> ord;
+    foreach(QString s, all_keywords)
+    {
+        ord.append(make_tuple(s, 0.0));
+    }
+    foreach(tuple s, ord)
+    {
+        if(all_keywords.indexOf(get<0>(s)) != -1)
+        {
+            get<1>(s) += 1;
+        }
+    }
+    ord = bubblesorthighkeyword(ord);
+    foreach(tuple t, ord)
+    {
+        tmp.append(get<0>(t));
+    }
+    return tmp;
+}

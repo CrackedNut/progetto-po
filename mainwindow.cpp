@@ -12,10 +12,33 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    refresh_articoli_list();
+    refresh_autori_list();
+    refresh_conferenze_list();
+    refresh_riviste_list();
 }
 
 MainWindow::~MainWindow()
 {
+    json_data.clear();
+    foreach(Autore a, autori)
+    {
+        json_ops::writeautore(a);
+    }
+    foreach(Conferenza c, conferenze)
+    {
+        json_ops::writeconferenza(c);
+    }
+    foreach(Rivista r, riviste)
+    {
+        json_ops::writerivista(r);
+    }
+    foreach(Articolo a, articoli)
+    {
+        json_ops::writearticolo(a);
+    }
+    json_ops::write_json();
+
     delete ui;
 }
 
@@ -238,6 +261,14 @@ void MainWindow::on_ordina_speciale_clicked()
 {
     genericListDialog dialog;
     dialog.changeUI("byAuthorSpecial");
+    dialog.exec();
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    genericListDialog dialog;
+    dialog.changeUI("byKeywordRecurrence");
     dialog.exec();
 }
 

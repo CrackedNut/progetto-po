@@ -1,9 +1,11 @@
-    #ifndef AUTOREDIALOG_H
+#ifndef AUTOREDIALOG_H
 #define AUTOREDIALOG_H
 
 #include <QDialog>
 
 #include "all_data.h"
+
+//#include "json_ops.h"
 
 
 namespace Ui {

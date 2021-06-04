@@ -29,6 +29,7 @@ public:
     void fill_filterAuthorYear(int, int);
     void fill_byKeywordPriceHigh();
     void fill_byAuthorSpecial(int);
+    void fill_byKeywordRecurrence();
 
 
 private slots:

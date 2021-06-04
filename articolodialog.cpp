@@ -1,5 +1,6 @@
 #include "articolodialog.h"
 #include "ui_articolodialog.h"
+#include "json_ops.h"
 
 articoloDialog::articoloDialog(QWidget *parent) :
     QDialog(parent),
@@ -70,6 +71,8 @@ void articoloDialog::on_keywords_plus_clicked()
         all_keywords.append(keywords.last());
 
     refresh_list(keywords, ui->keywords_box);
+    json_ops::writekeywords();
+    json_ops::write_json();
     add_correlati();
     refresh_list(correlati, ui->correlati_box);
 

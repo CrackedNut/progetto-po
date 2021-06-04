@@ -17,6 +17,7 @@ SOURCES += \
     conferenzadialog.cpp \
     fillerror.cpp \
     genericlistdialog.cpp \
+    json_ops.cpp \
     lineinputdialog.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     fillerror.h \
     genericlistdialog.h \
     json.hpp \
+    json_ops.h \
     lineinputdialog.h \
     mainwindow.h \
     rivista.h \
@@ -59,5 +61,4 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES += \
-    all_data.json
+DISTFILES +=

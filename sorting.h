@@ -2,7 +2,6 @@
 #define SORTING_H
 
 #include "all_data.h"
-#include "typeinfo"
 
 namespace sorting {
     QVector<Articolo> bubblesortlowarticolo(QVector<Articolo>);
@@ -12,6 +11,7 @@ namespace sorting {
     QVector<Articolo> specialbypricedec(QVector<Articolo>);
     QVector<Articolo> specialbykw(QVector<Articolo>);
     QVector<std::tuple<QString, double>> bubblesorthighkeyword(QVector<std::tuple<QString, double>>);
+    QVector<QString> sortKeywordRecurrence();
 }
 
 #endif // SORTING_H

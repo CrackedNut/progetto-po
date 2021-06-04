@@ -119,6 +119,14 @@ void genericListDialog::changeUI(QString a)
             ui->comboBox->addItem(a.get_nc());
         }
     }
+    else if(arg == "byKeywordRecurrence")
+    {
+        ui->comboBox->setVisible(false);
+        ui->dateEdit->setVisible(false);
+        ui->lineEdit->setVisible(false);
+
+        fill_byKeywordRecurrence();
+    }
 
 }
 
@@ -329,3 +337,20 @@ void genericListDialog::fill_byKeywordPriceHigh()
     }
 }
 
+void genericListDialog::fill_byKeywordRecurrence()
+{
+    int j;
+    QVector<QString> ord = sorting::sortKeywordRecurrence();
+    if(ord.size() >= 5)
+    {
+        j = 5;
+    }
+    else
+    {
+        j = ord.size();
+    }
+    for(int i = 0; i < j; i++)
+    {
+        ui->generic_list->addItem(ord[i]);
+    }
+}

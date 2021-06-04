@@ -68,7 +68,7 @@ void conferenzaDialog::fill_info(Conferenza c)
     ui->luogo_box->setText(c.get_luogo());
     ui->data_box->setDate(c.get_data());
     ui->partecipanti_box->setValue(c.get_partecipanti());
-    ui->organizzatori_list->addItems(organizzatori);
+    ui->organizzatori_list->addItems(c.get_organizzatori());
 }
 
 

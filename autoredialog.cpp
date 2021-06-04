@@ -1,7 +1,6 @@
 #include "autoredialog.h"
 #include "ui_autoredialog.h"
 
-
 autoreDialog::autoreDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::autoreDialog)
@@ -87,7 +86,7 @@ void autoreDialog::fill_info(Autore a)
     ui->cognome_box->setText(a.get_cognome());
     ui->id_box->setText(a.get_id());
     ui->afferenze_list_2->clear();
-    ui->afferenze_list_2->addItems(afferenze);
+    ui->afferenze_list_2->addItems(a.get_afferenze());
     ui->mediabox->setText(QString::number(mediaArticoli(a)));
 }
 
