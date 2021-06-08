@@ -175,7 +175,7 @@ void json_ops::writearticolo(Articolo a)
 void json_ops::writekeywords()
 {
     for(int i = 0; i < all_keywords.size(); i++)
-        json_data["keywords"][i] = all_keywords[i].toStdString();
+        json_data["all_keywords"][i] = all_keywords[i].toStdString();
 }
 
 

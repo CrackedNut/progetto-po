@@ -37,6 +37,10 @@ MainWindow::~MainWindow()
     {
         json_ops::writearticolo(a);
     }
+    foreach(QString a, all_keywords)
+    {
+        json_ops::writekeywords();
+    }
     json_ops::write_json();
 
     delete ui;

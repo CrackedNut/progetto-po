@@ -11,6 +11,7 @@ namespace sorting {
     QVector<Articolo> specialbypricedec(QVector<Articolo>);
     QVector<Articolo> specialbykw(QVector<Articolo>);
     QVector<std::tuple<QString, double>> bubblesorthighkeyword(QVector<std::tuple<QString, double>>);
+    QVector<std::tuple<QString, int>> bubblesortkeywordrecurrence(QVector<std::tuple<QString, int>>);
     QVector<QString> sortKeywordRecurrence();
 }
 

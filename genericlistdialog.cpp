@@ -34,6 +34,7 @@ void genericListDialog::changeUI(QString a)
         ui->dateEdit->setVisible(false);
         ui->lineEdit->setVisible(false);
         ui->verticalSpacer->invalidate();
+
     }
     else if(arg == "byKeyword")
     {
