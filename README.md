@@ -1,11 +1,6 @@
 <div id="content">
 
-# TODO list per progetto PO
-
-<div id="table-of-contents">
-
-## Table of Contents
-
+# TODO list per Progetto PO
 <div id="text-table-of-contents">
 </span> 
 
