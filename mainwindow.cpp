@@ -6,6 +6,12 @@
 #include "rivistadialog.h"
 #include "articolodialog.h"
 #include "genericlistdialog.h"
+#include "confirmdialog.h"
+
+#ifdef _WIN32
+#include <windows.h>
+#include <shellapi.h>
+#endif
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -16,6 +22,9 @@ MainWindow::MainWindow(QWidget *parent)
     refresh_autori_list();
     refresh_conferenze_list();
     refresh_riviste_list();
+    //createActions();
+    connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(actionAbout()));
+    connect(ui->actionElimina_dati, SIGNAL(triggered()), this, SLOT(removeData()));
 }
 
 MainWindow::~MainWindow()
@@ -291,4 +300,28 @@ void MainWindow::on_lowPriceButton_clicked()
     dialog.fill_lowerPrice(a.get_nc());
     dialog.exec();
 }
+
+void MainWindow::actionAbout()
+{
+    #ifdef _WIN32
+        ShellExecute(0, 0, L"https://github.com/CrackedNut/progetto-po/tree/main", 0, 0 , SW_SHOW );
+    #endif
+
+    #ifdef linux
+        system("xdg-open https://github.com/CrackedNut/progetto-po/tree/main");
+    #endif
+}
+
+void MainWindow::removeData()
+{
+    confirmDialog dialog;
+    dialog.exec();
+    refresh_articoli_list();
+    refresh_autori_list();
+    refresh_conferenze_list();
+    refresh_riviste_list();
+}
+
+
+
 

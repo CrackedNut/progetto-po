@@ -20,7 +20,11 @@ public:
     void refresh_riviste_list();
     void refresh_articoli_list();
 
+
 private slots:
+
+    //void on_actionAbout_clicked();
+
     void on_addAutoreButton_clicked();
 
     void on_approfondisci_autore_clicked();
@@ -61,8 +65,15 @@ private slots:
 
     void on_lowPriceButton_clicked();
 
+    void actionAbout();
+
+    void removeData();
+
 private:
     Ui::MainWindow *ui;
 
+    QMenu *fileMenu;
+    QMenu *aboutMenu;
+    QAction *aboutAction;
 };
 #endif // MAINWINDOW_H

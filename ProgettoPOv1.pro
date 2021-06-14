@@ -15,6 +15,7 @@ SOURCES += \
     autoredialog.cpp \
     conferenza.cpp \
     conferenzadialog.cpp \
+    confirmdialog.cpp \
     fillerror.cpp \
     genericlistdialog.cpp \
     json_ops.cpp \
@@ -35,6 +36,7 @@ HEADERS += \
     common.h \
     conferenza.h \
     conferenzadialog.h \
+    confirmdialog.h \
     fillerror.h \
     genericlistdialog.h \
     json.hpp \
@@ -50,6 +52,7 @@ FORMS += \
     articolodialog.ui \
     autoredialog.ui \
     conferenzadialog.ui \
+    confirmdialog.ui \
     fillerror.ui \
     genericlistdialog.ui \
     lineinputdialog.ui \
