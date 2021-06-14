@@ -128,13 +128,44 @@ void genericListDialog::changeUI(QString a)
 
         fill_byKeywordRecurrence();
     }
+    else if(arg == "lowerPrice")
+    {
+        ui->comboBox->setVisible(false);
+        ui->dateEdit->setVisible(false);
+        ui->lineEdit->setVisible(false);
 
+        //fill_lowerPrice();
+    }
+
+
+}
+
+void genericListDialog::fill_lowerPrice(QString a)
+{
+    ui->generic_list->clear();
+    QString b = a;
+    QVector<Articolo> tmp;
+    foreach(Articolo art, articoli)
+    {
+        if(art.get_autori().indexOf(a) != -1)
+            tmp.append(art);
+    }
+    tmp = sorting::bubblesorthigharticolo(tmp);
+    std::reverse(tmp.begin(), tmp.end());
+    if(tmp.size() > 0)
+    {
+        int p1 = tmp[0].get_prezzo();
+        foreach(Articolo art, tmp)
+        {
+            if(art.get_prezzo() == p1)
+                ui->generic_list->addItem(art.get_nome() + " " + QString::number(art.get_prezzo()));
+        }
+    }
 }
 
 void genericListDialog::fill_byKeyword(QString s)
 {
     ui->generic_list->clear();
-    qDebug() << s;
     foreach(Articolo a, articoli)
     {
         if(a.get_keywords().indexOf(s) != -1)

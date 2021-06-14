@@ -50,7 +50,6 @@ MainWindow::~MainWindow()
 void MainWindow::on_addAutoreButton_clicked()
 {
     autoreDialog dialog;
-    //dialog.switchUiElements(true);
     dialog.exec();
     refresh_autori_list();
 }
@@ -273,6 +272,23 @@ void MainWindow::on_pushButton_clicked()
 {
     genericListDialog dialog;
     dialog.changeUI("byKeywordRecurrence");
+    dialog.exec();
+}
+
+
+void MainWindow::on_lowPriceButton_clicked()
+{
+    Autore a;
+
+    QList<QListWidgetItem*> items = ui->autori_list->selectedItems();
+    foreach(QListWidgetItem* item, items)
+    {
+        a = autori[ui->autori_list->row(item)];
+    }
+
+    genericListDialog dialog;
+    dialog.changeUI("lowerPrice");
+    dialog.fill_lowerPrice(a.get_nc());
     dialog.exec();
 }
 

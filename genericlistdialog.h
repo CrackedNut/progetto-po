@@ -30,6 +30,7 @@ public:
     void fill_byKeywordPriceHigh();
     void fill_byAuthorSpecial(int);
     void fill_byKeywordRecurrence();
+    void fill_lowerPrice(QString);
 
 
 private slots:

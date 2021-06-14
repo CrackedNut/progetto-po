@@ -49,6 +49,13 @@
            </widget>
           </item>
           <item>
+           <widget class="QPushButton" name="lowPriceButton">
+            <property name="text">
+             <string>Visualizza articoli con prezzo basso</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <spacer name="verticalSpacer">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
@@ -73,8 +80,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>625</width>
-             <height>488</height>
+             <width>536</width>
+             <height>497</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_5">
@@ -148,8 +155,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>597</width>
-             <height>488</height>
+             <width>605</width>
+             <height>497</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_4">
@@ -192,8 +199,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>625</width>
-             <height>488</height>
+             <width>628</width>
+             <height>497</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_6">
@@ -267,8 +274,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>504</width>
-             <height>488</height>
+             <width>512</width>
+             <height>497</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_8">
@@ -408,7 +415,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>23</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

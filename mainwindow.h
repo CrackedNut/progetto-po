@@ -59,6 +59,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_lowPriceButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 

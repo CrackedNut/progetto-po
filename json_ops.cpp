@@ -4,8 +4,8 @@
 bool json_ops::checkexistance()
 {
     string s = "./json_data.json";
-  struct stat buffer;
-  return (stat (s.c_str(), &buffer) == 0);
+    struct stat buffer;
+    return (stat (s.c_str(), &buffer) == 0);
 }
 
 void json_ops::createjson()
@@ -51,7 +51,8 @@ void json_ops::readfromjson()
         autori.push_back(tmp);
     }
 
-        Conferenza ctmp;
+    //Fill inline QVector conferenze
+    Conferenza ctmp;
     for(unsigned int i = 0; i < j["conferenze"].size(); i++)
     {
         ctmp.set_id(QString::fromStdString(j["conferenze"][i]["id"]));
@@ -68,6 +69,7 @@ void json_ops::readfromjson()
         conferenze.push_back(ctmp);
     }
 
+    //fill inline QVector riviste
     Rivista rtmp;
     for(unsigned int i = 0; i < j["riviste"].size(); i++)
     {
@@ -80,12 +82,14 @@ void json_ops::readfromjson()
         riviste.push_back(rtmp);
     }
 
+    //fill inline QVector articoli
     Articolo atmp;
     for(unsigned int i = 0; i < j["articoli"].size(); i++)
     {
         atmp.set_id(QString::fromStdString(j["articoli"][i]["id"]));
         atmp.set_nome(QString::fromStdString(j["articoli"][i]["nome"]));
         atmp.set_pagine(j["articoli"][i]["pagine"]);
+        atmp.set_prezzo(j["articoli"][i]["prezzo"]);
 
         for(unsigned int l = 0; l < j["articoli"][i]["autori_articolo"].size(); l++)
             genericQStringVector.append(QString::fromStdString(j["articoli"][i]["autori_articolo"][l]));
