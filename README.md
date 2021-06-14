@@ -32,6 +32,8 @@
         *   1.4.6\. Prezzo
         *   1.4.7\. Lista articoli correlati
         *   1.4.8\. Conferenza o rivista
+          <br/>
+  <br/>     
 *   2\. <span style="color:purple">🟢</span> SEZIONE A (Tutti)
     *   2.1\. <span style="color:purple">🟢</span> Aggiunta di un autore
     *   2.2\. <span style="color:purple">🟢</span> Aggiunta di una conferenza
@@ -41,6 +43,8 @@
     *   2.6\. <span style="color:purple">🟢</span> Visualizzare tutte le conferenze
     *   2.7\. <span style="color:purple">🟢</span> Visualizzare tutte le riviste
     *   2.8\. <span style="color:purple">🟢</span> Visualizzare tutti gli autori
+      <br/>
+  <br/>     
 *   3\. <span style="color:purple">🟢</span> SEZIONE B (Almeno 3)
     *   3.1\. <span style="color:purple">🟢</span> Visualizzare tutti gli articoli di un autore
     *   3.2\. <span style="color:purple">🟢</span> Visualizzare tutti gli articoli di un autore in un anno
@@ -48,6 +52,8 @@
     *   3.4\. <span style="color:purple">🟢</span> Visualizzare tutti gli articoli relativi a una conferenza
     *   3.5\. <span style="color:purple">🟢</span> Visualizzare tutti gli articoli relativi a una rivista
     *   3.6\. <span style="color:purple">🟢</span> Visualizzare tutti gli articoli relativi a una keyword
+      <br/>
+  <br/>     
 *   4\. <span style="color:purple">🟢</span> SEZIONE C (Almeno 3)
     *   4.1\. <span style="color:purple">🟢</span> Visualizzare gli articoli con il prezzo più basso tra tutti gli articoli di un autore
     *   4.2\. <span style="color:red">🔴</span> Visualizzare gli articoli con il prezzo più altro tra tutti gli articoli di un autore
@@ -55,6 +61,8 @@
     *   4.4\. <span style="color:red">🔴</span> Visualizzare il guadagno annuale di una conferenza calcolato come la somma dei prezzi degli articoli presentati per quella conferenza in un anno
     *   4.5\. <span style="color:red">🔴</span> Visualizzare il guadagno annuale di una rivista calcolato come la somma dei prezzi degli articoli presentati per quella rivista in un anno
     *   4.6\. <span style="color:purple">🟢</span> Visualizzare le keyword la cui somma degli articoli porta al guadagno più alto
+      <br/>
+  <br/>     
 *   5\. <span style="color:purple">🟢</span> SEZIONE D (Almeno 2)
     *   5.1\. <span style="color:purple">🟢</span> Visualizzare gli articoli di un autore ordinati per anno
     *   5.2\. <span style="color:purple">🟢</span> Visualizzare gli articoli di un autore ordinati per prezzo
@@ -62,6 +70,8 @@
     *   5.4\. <span style="color:red">🔴</span> Visualizzare gli articoli di una rivista ordinati per prezzo
     *   5.5\. <span style="color:red">🔴</span> Visualizzare gli articoli relativi a una keyword, ordinati per anno decrescente, a parità di anno, ordinati per prezzo crescente e a parità di prezzo ordinati in ordine alfabetico per il cognome del primo autore (*)
     *   5.6\. <span style="color:purple">🟢</span> Visualizzare gli articoli relativi a un autore, ordinati per anno crescente, a parità di anno, ordinati per prezzo decrescente e a parità di prezzo ordinati in ordine alfabetico per la prima keyword nella lista (*)
+      <br/>
+  <br/>     
 *   6\. <span style="color:purple">🟢</span> SEZIONE E (Almeno 1)
     *   6.1\. <span style="color:red">🔴</span> Visualizzare le conferenze in cui esiste una keyword ricorrente in tutti gli articoli
     *   6.2\. <span style="color:red">🔴</span> Visualizzare le riviste in cui un autore non ha mai pubblicato un articolo
@@ -69,6 +79,8 @@
     *   6.4\. <span style="color:red">🔴</span> Visualizzare le conferenze i cui articoli non hanno keyword in comune
     *   6.5\. <span style="color:red">🔴</span> Visualizzare le strutture più produttive, dove la produttività di una struttura è calcolata come la somma degli articoli pubblicati da autori afferenti a quella struttura
     *   6.6\. <span style="color:red">🔴</span> Visualizzare le riviste specialistiche. Una rivista R1 è considerata specialistica se esiste un’altra rivista R2, tale che le keyword degli articoli di R1 sono un sottoinsieme proprio di tutte le keyword degli articoli di R2 (*)
+      <br/>
+  <br/>     
 *   7\. <span style="color:purple">🟢</span> SEZIONE F (Facoltativo)
     *   7.1\. <span style="color:red">🔴</span> Visualizzare tutti gli articoli influenzati da un dato articolo, dove un articolo A influenza un altro articolo B se:
         *   7.1.1\. A è nella lista dei correlati di B e la data di pubblicazione di A è precedente rispetto a quella di B
