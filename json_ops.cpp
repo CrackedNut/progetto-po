@@ -3,15 +3,15 @@
 
 bool json_ops::checkexistance()
 {
-    string s = "./json_data.json";
+    std::string s = "./json_data.json";
     struct stat buffer;
     return (stat (s.c_str(), &buffer) == 0);
 }
 
 void json_ops::createjson()
 {
-    ofstream file_write("./json_data.json");
-    string s = "{\"all_keywords\":[],\"autori\":[],\"articoli\":[],\"riviste\":[],\"conferenze\":[]}";
+    std::ofstream file_write("./json_data.json");
+    std::string s = "{\"all_keywords\":[],\"autori\":[],\"articoli\":[],\"riviste\":[],\"conferenze\":[]}";
     file_write << s;
     file_write.close();
 }
@@ -19,13 +19,13 @@ void json_ops::createjson()
 void json_ops::load_json() {
 
   //ifstream ifs("/home/luis/ProgettoPOv1/all_data.json");
-    ifstream ifs("./json_data.json");
+    std::ifstream ifs("./json_data.json");
     json_data = json::parse(ifs);
     ifs.close();
 }
 
 void json_ops::write_json() {
-  ofstream file_write("./json_data.json");
+  std::ofstream file_write("./json_data.json");
   file_write << json_data;
   file_write.close();
 }
