@@ -100,13 +100,13 @@ Il codice è stato scritto in Linux (Fedora 34), ma è interamente valido anche 
     + Aggiunta autori / ln 59-64 -> lineinputdialog.cpp (intero file)
 
 Una volta chiusa la finestra di aggiunta di un elemento, viene chiamato il metodo refresh_(autori/conferenze/riviste/articoli)_list() per aggiornare la lista relativa a quell'elemento:
-  + A.1.1 mainwindow.cpp -> refresh_autori_list()  ln 66-73
+    + A.1.1 mainwindow.cpp -> refresh_autori_list()  ln 66-73
 
-  + A.1.2 mainwindow.cpp -> refresh_conferenze_list()  ln 101-108
+    + A.1.2 mainwindow.cpp -> refresh_conferenze_list()  ln 101-108
 
-  + A.1.3 mainwindow.cpp -> refresh_riviste_list()  ln 134-139
+    + A.1.3 mainwindow.cpp -> refresh_riviste_list()  ln 134-139
 
-  + A.1.4 mainwindow.cpp -> refresh_articoli_list()  ln 164-170
+    + A.1.4 mainwindow.cpp -> refresh_articoli_list()  ln 164-170
 
 I dati sono conservati in all_data.h, particolarmente in strutture del tipo " inline QVector<\*classe elemento\*> "
 
