@@ -13,7 +13,7 @@
 #include <tuple>
 
 using json=nlohmann::json;
-using namespace std;
+//using namespace std;
 
 inline QVector<Autore> autori;
 inline QVector<Conferenza> conferenze;

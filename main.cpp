@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     {
         qDebug() << "exists";
         try{json_ops::readfromjson();}
-        catch(error_t){json_ops::createjson(); json_ops::readfromjson();}
+        catch(errno_t){json_ops::createjson(); json_ops::readfromjson();}
     }
     else
     {

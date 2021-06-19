@@ -7,13 +7,13 @@ void swaparticolo(Articolo* a, Articolo* b)
     *b = temp;
 }
 
-void swaptuple(tuple<QString,double>* a, std::tuple<QString, double>* b)
+void swaptuple(std::tuple<QString,double>* a, std::tuple<QString, double>* b)
 {
     std::tuple<QString, double> temp = *a;
     *a = *b;
     *b = temp;
 }
-void swaptuplei(tuple<QString,int>* a, std::tuple<QString, int>* b)
+void swaptuplei(std::tuple<QString,int>* a, std::tuple<QString, int>* b)
 {
     std::tuple<QString, int> temp = *a;
     *a = *b;
@@ -142,20 +142,20 @@ QVector<std::tuple<QString, int>> sorting::bubblesortkeywordrecurrence(QVector<s
 QVector<QString> sorting::sortKeywordRecurrence()
 {
     QVector<QString> tmp;
-    QVector<tuple<QString, int>> ord;
+    QVector<std::tuple<QString, int>> ord;
 
     foreach(QString s, all_keywords)
-        ord.append(make_tuple(s, 0.0));
+        ord.append(std::make_tuple(s, 0.0));
 
     for(int i = 0;  i < ord.size(); i++)
         foreach(Articolo a, articoli)
-            if(a.get_keywords().indexOf(get<0>(ord[i])) != -1)
-                get<1>(ord[i]) += 1;
+            if(a.get_keywords().indexOf(std::get<0>(ord[i])) != -1)
+                std::get<1>(ord[i]) += 1;
 
     ord = bubblesortkeywordrecurrence(ord);
 
-    foreach(tuple t, ord)
-        tmp.append(get<0>(t));
+    foreach(std::tuple t, ord)
+        tmp.append(std::get<0>(t));
 
     return tmp;
 }
