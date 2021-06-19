@@ -14,17 +14,6 @@ genericListDialog::~genericListDialog()
     delete ui;
 }
 
-void genericListDialog::fill_articoliAutore_list(Autore a)
-{
-    foreach(Articolo art, articoli)
-    {
-        if(art.get_autori().indexOf(a.get_nc()) != -1)
-        {
-            ui->generic_list->addItem(art.get_nome());
-        }
-    }
-}
-
 void genericListDialog::changeUI(QString a)
 {
     arg = a;
@@ -34,7 +23,6 @@ void genericListDialog::changeUI(QString a)
         ui->dateEdit->setVisible(false);
         ui->lineEdit->setVisible(false);
         ui->verticalSpacer->invalidate();
-
     }
     else if(arg == "byKeyword")
     {
@@ -133,11 +121,18 @@ void genericListDialog::changeUI(QString a)
         ui->comboBox->setVisible(false);
         ui->dateEdit->setVisible(false);
         ui->lineEdit->setVisible(false);
-
-        //fill_lowerPrice();
     }
+}
 
-
+void genericListDialog::fill_articoliAutore_list(Autore a)
+{
+    foreach(Articolo art, articoli)
+    {
+        if(art.get_autori().indexOf(a.get_nc()) != -1)
+        {
+            ui->generic_list->addItem(art.get_nome());
+        }
+    }
 }
 
 void genericListDialog::fill_lowerPrice(QString a)
@@ -248,7 +243,7 @@ void genericListDialog::fill_byAuthorPriceHigh(int s)
 
     foreach(Articolo a, sorted)
     {
-        ui->generic_list->addItem(a.get_nome() + " | " + QString::number(a.get_data().year()));
+        ui->generic_list->addItem(a.get_nome() + " | " + QString::number(a.get_prezzo()));
     }
 }
 
@@ -270,7 +265,7 @@ void genericListDialog::fill_byAuthorYear(int s)
 
     foreach(Articolo a, sorted)
     {
-        ui->generic_list->addItem(a.get_nome() + " | $" + QString::number(a.get_prezzo()));
+        ui->generic_list->addItem(a.get_nome() + " | " + QString::number(a.get_data().year()));
     }
 }
 
@@ -289,6 +284,7 @@ void genericListDialog::fill_filterAuthorYear(int s, int year)
 
 void genericListDialog::fill_byAuthorSpecial(int i)
 {
+    ui->generic_list->clear();
     QVector<Articolo> unordered;
     foreach(Articolo a, articoli)
     {
@@ -307,7 +303,6 @@ void genericListDialog::fill_byAuthorSpecial(int i)
 
 void genericListDialog::on_comboBox_currentIndexChanged(int index)
 {
-    qDebug() <<index;
     if(arg == "byRivista")
     {
         fill_byRivista(index);
@@ -328,7 +323,7 @@ void genericListDialog::on_comboBox_currentIndexChanged(int index)
     {
         fill_byAuthorYear(index);
     }
-    else if(arg == "fillAuthorYear")
+    else if(arg == "filterAuthorYear")
     {
         fill_filterAuthorYear(index, ui->dateEdit->date().year());
     }
@@ -338,9 +333,9 @@ void genericListDialog::on_comboBox_currentIndexChanged(int index)
     }
 }
 
-void genericListDialog::on_dateEdit_dateChanged(const QDate &date)
+void genericListDialog::on_dateEdit_userDateChanged(const QDate &date)
 {
-    if(arg == "fillAuthorYear")
+    if(arg == "filterAuthorYear")
     {
         fill_filterAuthorYear(ui->comboBox->currentIndex(), date.year());
     }

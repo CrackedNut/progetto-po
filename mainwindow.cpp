@@ -157,7 +157,6 @@ void MainWindow::on_addArticoloButton_clicked()
 }
 
 void MainWindow::refresh_articoli_list()
-
 {
     ui->articoli_list->clear();
     foreach(Articolo a, articoli)
@@ -202,15 +201,12 @@ void MainWindow::on_byKeywordButton_clicked()
     dialog.exec();
 }
 
-
 void MainWindow::on_byRivistaButton_clicked()
 {
     genericListDialog dialog;
     dialog.changeUI("byRivista");
     dialog.exec();
-
 }
-
 
 void MainWindow::on_byConferenza_clicked()
 {
@@ -219,8 +215,7 @@ void MainWindow::on_byConferenza_clicked()
     dialog.exec();
 }
 
-
-void MainWindow::on_byConferenza_2_clicked()
+void MainWindow::on_byAuthorPriceLow_clicked()
 {
     genericListDialog dialog;
     dialog.changeUI("byAuthorPriceLow");
@@ -228,13 +223,12 @@ void MainWindow::on_byConferenza_2_clicked()
 }
 
 
-void MainWindow::on_byConferenza_3_clicked()
+void MainWindow::on_byAuthorPriceHigh_clicked()
 {
     genericListDialog dialog;
     dialog.changeUI("byAuthorPriceHigh");
     dialog.exec();
 }
-
 
 void MainWindow::on_ordinaAutoreAnno_clicked()
 {
@@ -243,9 +237,6 @@ void MainWindow::on_ordinaAutoreAnno_clicked()
     dialog.exec();
 }
 
-
-
-
 void MainWindow::on_filtraAutoreAnno_clicked()
 {
     genericListDialog dialog;
@@ -253,14 +244,12 @@ void MainWindow::on_filtraAutoreAnno_clicked()
     dialog.exec();
 }
 
-
-void MainWindow::on_ordinaAutoreAnno_2_clicked()
+void MainWindow::on_keywordPriceHigh_clicked()
 {
     genericListDialog dialog;
     dialog.changeUI("byKeywordPriceHigh");
     dialog.exec();
 }
-
 
 void MainWindow::on_ordina_speciale_clicked()
 {
@@ -269,14 +258,12 @@ void MainWindow::on_ordina_speciale_clicked()
     dialog.exec();
 }
 
-
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_keywordRecurrenceButton_clicked()
 {
     genericListDialog dialog;
     dialog.changeUI("byKeywordRecurrence");
     dialog.exec();
 }
-
 
 void MainWindow::on_lowPriceButton_clicked()
 {
@@ -314,7 +301,3 @@ void MainWindow::removeData()
     refresh_conferenze_list();
     refresh_riviste_list();
 }
-
-
-
-

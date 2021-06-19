@@ -359,14 +359,14 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="byConferenza_2">
+           <widget class="QPushButton" name="byAuthorPriceLow">
             <property name="text">
              <string>Ordina per autore e prezzo crescente</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="byConferenza_3">
+           <widget class="QPushButton" name="byAuthorPriceHigh">
             <property name="text">
              <string>Ordina per autore e prezzo decrescente</string>
             </property>
@@ -380,7 +380,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="ordinaAutoreAnno_2">
+           <widget class="QPushButton" name="keywordPriceHigh">
             <property name="text">
              <string>Ordina totale prezzo keyword</string>
             </property>
@@ -394,7 +394,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="keywordRecurrenceButton">
             <property name="text">
              <string>Keyword più ricorrenti</string>
             </property>
