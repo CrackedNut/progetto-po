@@ -76,50 +76,47 @@
     *   F.4\. <span>🟢</span> Possibilità di leggere i dati degli autori, degli articoli, delle riviste e delle conferenze da file di testo (l’organizzazione interna del file è a vostra discrezione) (**)
     *   F.5\. <span>🔴</span> Visualizzare le conferenze simili ad una specificata dall’utente. Una conferenza è simile a un’altra conferenza se hanno almeno l’80% delle keyword in comune (**)
     *   F.6\. <span>🔴</span> Visualizzare le triple di conferenze elitarie che hanno la massima influenza. Una tripla di conferenze è considerata elitaria se le keyword presenti negli articoli di ogni conferenza non sono presenti negli articoli delle altre due. L’influenza di una tripla di conferenze è calcolata come la somma delle influenze delle singole conferenze appartenenti alla tripla (**)
+</div>
+
+## Spiegazione e linee
 
 La grande maggioranza dei file .cpp sono da intendersi relativi al rispettivo file .h
 
-Il codice è stato scritto in Linux (Fedora 34), ma è interamente valido anche per
 
-Windows e può essere compilato per tale piattaforma.
+Il codice è stato scritto in Linux (Fedora 34), ma è interamente valido anche per Windows e può essere compilato per tale piattaforma.
 
-Sezione A:
++ Sezione A:
+  + A.1 autoredialog.cpp / ln 20-42 (principale) | classe "Autore" definita in autore.cpp
+    + Aggiunta afferenze / ln 45-50 -> lineinputdialog.cpp (intero file)
+ 
+  + A.2 conferenzadialog.cpp / ln 17-42 (principale) | classe "Conferenza" definita in conferenza.cpp 
+    + Aggiunta organizzatori / ln 75-80 -> lineinputdialog.cpp (intero file)
 
-    -A.1 autoredialog.cpp / ln 20-42 (principale) | classe "Autore" definita in autore.cpp 
+  + A.3 rivistadialog.cpp / ln 19-42 (principale) | classe "Rivista" definita in rivista.cpp
 
-        -- Aggiunta afferenze / ln 45-50 -> lineinputdialog.cpp (intero file)
+  + A.4 articolodialog.cpp / ln 18-50 (principale) | classe "Articolo" definita in articolo.cpp
+    + Aggiunta keyword / ln 66-83 -> lineinputdialog.cpp (intero file)
+    
+    + Aggiunta autori / ln 59-64 -> lineinputdialog.cpp (intero file)
 
-    -A.2 conferenzadialog.cpp / ln 17-42 (principale) | classe "Conferenza" definita in conferenza.cpp
+Una volta chiusa la finestra di aggiunta di un elemento, viene chiamato il metodo refresh_(autori/conferenze/riviste/articoli)_list() per aggiornare la lista relativa a quell'elemento:
+  + A.1.1 mainwindow.cpp -> refresh_autori_list()  ln 66-73
 
-        -- Aggiunta organizzatori / ln 75-80 -> lineinputdialog.cpp (intero file)
+  + A.1.2 mainwindow.cpp -> refresh_conferenze_list()  ln 101-108
 
-    -A.3 rivistadialog.cpp / ln 19-42 (principale) | classe "Rivista" definita in rivista.cpp
+  + A.1.3 mainwindow.cpp -> refresh_riviste_list()  ln 134-139
 
-    -A.4 articolodialog.cpp / ln 18-50 (principale) | classe "Articolo" definita in articolo.cpp
+  + A.1.4 mainwindow.cpp -> refresh_articoli_list()  ln 164-170
 
-        -- Aggiunta keyword / ln 66-83 -> lineinputdialog.cpp (intero file)
+I dati sono conservati in all_data.h, particolarmente in strutture del tipo " inline QVector<\*classe elemento\*> "
 
-        -- Aggiunta autori / ln 59-64 -> lineinputdialog.cpp (intero file)
 
-    Una volta chiusa la finestra di aggiunta di un elemento, viene chiamato il metodo refresh_(autori/conferenze/riviste/articoli)_list() per aggiornare la lista relativa a quell'elemento:
+La visualizzazione de dati è gestita da (autore/conferenza/rivista/articolo)dialog.cpp in due metodi: switchUiElements e fill_info.\
+Vengono chiamati da mainwindow.cpp su \*dialog.cpp dopo che l'utente seleziona un elemento e preme il pulsante "Visualizza \*elemento\*".
+Il primo disattiva l'interattività della finestra di dialogo e nasconde i widget non utili alla visualizzazione; il secondo riempie i campi con i dati richiesti.\
+Viene chiamato il metodo on_approfondisci_\*elemento\*_clicked che riconosce quale elemento è stato selezionato e riempie il relativo dialog con le informazioni necessarie.
 
-    -A.1.1 mainwindow.cpp -> refresh_autori_list()  ln 66-73
 
-    -A.1.2 mainwindow.cpp -> refresh_conferenze_list()  ln 101-108
-
-    -A.1.3 mainwindow.cpp -> refresh_riviste_list()  ln 134-139
-
-    -A.1.4 mainwindow.cpp -> refresh_articoli_list()  ln 164-170
-
-    I dati sono conservati in all_data.h, particolarmente in strutture del tipo " inline QVector<*classe elemento*> "
-
-    La visualizzazione de dati è gestita da (autore/conferenza/rivista/articolo)dialog.cpp in due metodi: switchUiElements e fill_info.
-
-    Vengono chiamati da mainwindow.cpp su *dialog.cpp dopo che l'utente seleziona un elemento e preme il pulsante "Visualizza *elemento*".
-
-    Viene chiamato il metodo on_approfondisci_*elemento*_clicked che riconosce quale *elemento* è stato selezionato e riempie il relativo dialog con le informazioni necessarie.
-
-    Il primo disattiva l'interattività della finestra di dialogo e nasconde i widget non utili alla visualizzazione; il secondo riempie i campi con i dati richiesti.
 
     -A.5 mainwindow.cpp ln 76-89 -> autoredialog.cpp / switchUiElements ln 70-81 & fill_info ln 83-91
 
