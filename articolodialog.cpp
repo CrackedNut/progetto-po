@@ -67,7 +67,15 @@ void articoloDialog::on_keywords_plus_clicked()
 {
     lineInputDialog dialog(nullptr, &keywords);
     dialog.exec();
-    if(all_keywords.indexOf(keywords.last()) == -1)
+    bool contains = false;
+    foreach(QString s, all_keywords)
+    {
+        if(s.toLower() == keywords.last().toLower())
+        {
+            contains = true;
+        }
+    }
+    if(!contains)
         all_keywords.append(keywords.last());
 
     refresh_list(keywords, ui->keywords_box);
@@ -93,7 +101,7 @@ void articoloDialog::add_correlati()
 
         foreach(QString c, extKeywords)
         {
-            if(keywords.last() == c && correlati.indexOf(extNome) == -1)
+            if(keywords.last().toLower() == c.toLower() && correlati.indexOf(extNome) == -1)
             {
                 correlati.append(extNome);
                 ui->correlati_box->addItem(extNome);

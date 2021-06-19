@@ -71,14 +71,12 @@ void conferenzaDialog::fill_info(Conferenza c)
     ui->organizzatori_list->addItems(c.get_organizzatori());
 }
 
-
 void conferenzaDialog::on_plus_button_clicked()
 {
     lineInputDialog dialog(nullptr, &organizzatori);
     dialog.exec();
     refresh_list(organizzatori, ui->organizzatori_list);
 }
-
 
 void conferenzaDialog::on_minus_button_clicked()
 {
@@ -89,4 +87,3 @@ void conferenzaDialog::on_minus_button_clicked()
         delete ui->organizzatori_list->takeItem(ui->organizzatori_list->row(item));
     }
 }
-

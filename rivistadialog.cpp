@@ -14,8 +14,6 @@ rivistaDialog::~rivistaDialog()
     delete ui;
 }
 
-
-
 void rivistaDialog::on_buttonBox_accepted()
 {
     Rivista rTemp;

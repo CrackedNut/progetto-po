@@ -143,7 +143,6 @@ void genericListDialog::changeUI(QString a)
 void genericListDialog::fill_lowerPrice(QString a)
 {
     ui->generic_list->clear();
-    QString b = a;
     QVector<Articolo> tmp;
     foreach(Articolo art, articoli)
     {
@@ -168,9 +167,10 @@ void genericListDialog::fill_byKeyword(QString s)
     ui->generic_list->clear();
     foreach(Articolo a, articoli)
     {
-        if(a.get_keywords().indexOf(s) != -1)
+        foreach(QString k, a.get_keywords())
         {
-            ui->generic_list->addItem(a.get_nome());
+            if(k.toLower().contains(s.toLower()) && ui->lineEdit->text().size() != 0)
+                ui->generic_list->addItem(a.get_nome());
         }
     }
 }

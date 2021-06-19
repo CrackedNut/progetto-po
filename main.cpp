@@ -11,7 +11,11 @@ int main(int argc, char *argv[])
     {
         qDebug() << "exists";
         try{json_ops::readfromjson();}
+#ifdef _WIN32
         catch(errno_t){json_ops::createjson(); json_ops::readfromjson();}
+#else
+        catch(error_t){json_ops::createjson(); json_ops::readfromjson();}
+#endif
     }
     else
     {

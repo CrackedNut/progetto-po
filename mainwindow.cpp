@@ -46,10 +46,7 @@ MainWindow::~MainWindow()
     {
         json_ops::writearticolo(a);
     }
-    foreach(QString a, all_keywords)
-    {
-        json_ops::writekeywords();
-    }
+    json_ops::writekeywords();
     json_ops::write_json();
 
     delete ui;
@@ -86,7 +83,6 @@ void MainWindow::on_approfondisci_autore_clicked()
     dialog.fill_info(a);
     dialog.switchUiElements();
     dialog.exec();
-
 }
 
 
@@ -153,7 +149,6 @@ void MainWindow::on_approfondisci_rivista_clicked()
     dialog.exec();
 }
 
-
 void MainWindow::on_addArticoloButton_clicked()
 {
     articoloDialog dialog;
@@ -182,9 +177,7 @@ void MainWindow::on_approfondisci_articolo_clicked()
     dialog.fill_info(a);
     dialog.switchUiElements();
     dialog.exec();
-
 }
-
 
 void MainWindow::on_articoli_autore_clicked()
 {
