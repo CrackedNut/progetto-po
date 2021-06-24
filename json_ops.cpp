@@ -159,7 +159,7 @@ void json_ops::writearticolo(Articolo a)
     int i = json_data["articoli"].size();
     json_data["articoli"][i]["id"] = a.get_id().toStdString();
     json_data["articoli"][i]["nome"] = a.get_nome().toStdString();
-    json_data["articoli"][i]["origine"] = a.get_origine();
+    if(a.get_origine()){json_data["articoli"][i]["origine"] = "conferenza";} else{json_data["articoli"][i]["origine"] = "rivista";}
     json_data["articoli"][i]["nome_origine"] = a.get_nome_origine().toStdString();
 
     for(int j = 0; j<a.get_autori().size(); j++)

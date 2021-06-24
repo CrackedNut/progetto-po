@@ -197,7 +197,7 @@ void genericListDialog::fill_byConferenza(int s)
     qDebug() << s;
     foreach(Articolo a, articoli)
     {
-        if(a.get_nome_origine() == conferenze[s].get_nome() && a.get_origine())
+        if(a.get_nome_origine().toLower() == conferenze[s].get_nome().toLower() && a.get_origine())
         {
             ui->generic_list->addItem(a.get_nome());
         }
