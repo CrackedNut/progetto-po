@@ -21,7 +21,7 @@ private slots:
 private:
     Ui::lineInputDialog *ui;
     QVector<QString>* vs;
-    QString tmp;
+    QString tmp, arg;
 
 };
 

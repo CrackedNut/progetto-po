@@ -73,7 +73,7 @@ void conferenzaDialog::fill_info(Conferenza c)
 
 void conferenzaDialog::on_plus_button_clicked()
 {
-    lineInputDialog dialog(nullptr, &organizzatori);
+    selectorDialog dialog(nullptr, &organizzatori, "autori");
     dialog.exec();
     refresh_list(organizzatori, ui->organizzatori_list);
 }

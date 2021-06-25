@@ -2,7 +2,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c++17
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -24,6 +24,7 @@ SOURCES += \
     mainwindow.cpp \
     rivista.cpp \
     rivistadialog.cpp \
+    selectordialog.cpp \
     sorting.cpp \
     strutturabase.cpp
 
@@ -45,6 +46,7 @@ HEADERS += \
     mainwindow.h \
     rivista.h \
     rivistadialog.h \
+    selectordialog.h \
     sorting.h \
     strutturabase.h
 
@@ -57,7 +59,8 @@ FORMS += \
     genericlistdialog.ui \
     lineinputdialog.ui \
     mainwindow.ui \
-    rivistadialog.ui
+    rivistadialog.ui \
+    selectordialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

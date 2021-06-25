@@ -8,7 +8,7 @@ Conferenza::Conferenza()
 //Getters
 QString Conferenza::get_luogo() {return luogo;}
 QDate Conferenza::get_data() {return data;}
-QVector<QString> Conferenza::get_organizzatori() {return organizzatori;}
+QVector<std::tuple<QString,QString>> Conferenza::get_organizzatori() {return organizzatori;}
 int Conferenza::get_partecipanti() {return partecipanti;}
 
 //Setters

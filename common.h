@@ -8,5 +8,6 @@
 
 #include "fillerror.h"
 #include "lineinputdialog.h"
+#include "selectordialog.h"
 
 #endif // COMMON_H

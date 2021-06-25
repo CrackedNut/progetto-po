@@ -1,7 +1,7 @@
 #include "lineinputdialog.h"
 #include "ui_lineinputdialog.h"
 
-lineInputDialog::lineInputDialog(QWidget *parent, QVector<QString>* v) :
+lineInputDialog::lineInputDialog(QWidget *parent, QVector<QString>* v):
     QDialog(parent),
     ui(new Ui::lineInputDialog)
 {
@@ -14,8 +14,6 @@ lineInputDialog::~lineInputDialog()
 {
     delete ui;
 }
-
-
 
 void lineInputDialog::on_buttonBox_accepted()
 {

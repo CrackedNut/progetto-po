@@ -285,10 +285,10 @@ void MainWindow::actionAbout()
 {
     #ifdef _WIN32
         ShellExecute(0, 0, L"https://github.com/CrackedNut/progetto-po/tree/main", 0, 0 , SW_SHOW );
-    #endif
-
-    #ifdef linux
+    #elif defined(__linux__)
         system("xdg-open https://github.com/CrackedNut/progetto-po/tree/main");
+    #elif defined(__APPLE__)
+        system("open https://github.com/CrackedNut/progetto-po/tree/main")
     #endif
 }
 

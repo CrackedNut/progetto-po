@@ -36,6 +36,7 @@ void json_ops::readfromjson()
     json j = json_data;
     Autore tmp;
     QVector<QString> genericQStringVector;
+    QVector<std::tuple<QString,QString>> genericQStringTupleVector;
 
     //Fill inline QVector autori
     for(unsigned int i = 0; i <j["autori"].size(); i++)
@@ -60,10 +61,12 @@ void json_ops::readfromjson()
         ctmp.set_luogo(QString::fromStdString(j["conferenze"][i]["luogo"]));
 
         for(unsigned int l = 0; l < j["conferenze"][i]["organizzatori"].size(); l++)
-            genericQStringVector.append(QString::fromStdString(j["conferenze"][i]["organizzatori"][l]));
+        {
+            genericQStringTupleVector.append(std::make_tuple(QString::fromStdString(j["conferenze"][i]["organizzatori"][l]["id"]), QString::fromStdString(j["conferenze"][i]["organizzatori"][l]["nome"])));
+        }
 
-        ctmp.set_organizzatori(genericQStringVector);
-        genericQStringVector.clear();
+        ctmp.set_organizzatori(genericQStringTupleVector);
+        genericQStringTupleVector.clear();
         ctmp.set_data(QDate::fromString(QString::fromStdString(j["conferenze"][i]["data"]), "dd-MM-yyyy"));
         ctmp.set_partecipanti(j["conferenze"][i]["partecipanti"]);
         conferenze.push_back(ctmp);
@@ -139,7 +142,10 @@ void json_ops::writeconferenza(Conferenza c)
     json_data["conferenze"][i]["partecipanti"] = c.get_partecipanti();
 
     for(int j = 0; j < c.get_organizzatori().size(); j++)
-        json_data["conferenze"][i]["organizzatori"][j] = c.get_organizzatori()[j].toStdString();
+    {
+        json_data["conferenze"][i]["organizzatori"][j]["id"] = std::get<0>(c.get_organizzatori()[j]).toStdString();
+        json_data["conferenze"][i]["organizzatori"][j]["nc"] = std::get<1>(c.get_organizzatori()[j]).toStdString();
+    }
 
     json_data["conferenze"][i]["data"] = c.get_data().toString("dd-MM-yyyy").toStdString();    
 }

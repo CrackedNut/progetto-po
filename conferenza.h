@@ -11,19 +11,19 @@ public:
     //Getters
     QString get_luogo();
     QDate get_data();
-    QVector<QString> get_organizzatori();
+    QVector<std::tuple<QString,QString>> get_organizzatori();
     int get_partecipanti();
 
     //Setters
     void set_luogo(QString);
     void set_data(QDate);
-    void set_organizzatori(QVector<QString>);
+    void set_organizzatori(QVector<std::tuple<QString,QString>>);
     void set_partecipanti(int);
 
 private:
     QString luogo;
     QDate data;
-    QVector<QString> organizzatori;
+    QVector<std::tuple<QString,QString>> organizzatori;
     int partecipanti;
 };
 
