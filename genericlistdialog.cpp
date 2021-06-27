@@ -128,7 +128,10 @@ void genericListDialog::fill_articoliAutore_list(Autore a)
 {
     foreach(Articolo art, articoli)
     {
-        if(art.get_autori().indexOf(a.get_nc()) != -1)
+        QVector<QString> t;
+        foreach(std::tuple n, art.get_autori())
+            t.append(std::get<1>(n));
+        if(t.indexOf(a.get_nc()) != -1)
         {
             ui->generic_list->addItem(art.get_nome());
         }
@@ -141,7 +144,10 @@ void genericListDialog::fill_lowerPrice(QString a)
     QVector<Articolo> tmp;
     foreach(Articolo art, articoli)
     {
-        if(art.get_autori().indexOf(a) != -1)
+        QVector<QString> t;
+        foreach(std::tuple n, art.get_autori())
+            t.append(std::get<1>(n));
+        if(t.indexOf(a) != -1)
             tmp.append(art);
     }
     tmp = sorting::bubblesorthigharticolo(tmp);
@@ -150,10 +156,8 @@ void genericListDialog::fill_lowerPrice(QString a)
     {
         int p1 = tmp[0].get_prezzo();
         foreach(Articolo art, tmp)
-        {
             if(art.get_prezzo() == p1)
                 ui->generic_list->addItem(art.get_nome() + " " + QString::number(art.get_prezzo()));
-        }
     }
 }
 
@@ -211,9 +215,11 @@ void genericListDialog::fill_byAuthorPriceLow(int s)
     QVector<Articolo> articoliAutore;
     foreach(Articolo a, articoli)
     {
-        if(a.get_autori().indexOf(autori[s].get_nc()) != -1)
+        QVector<QString> t;
+        foreach(std::tuple n, a.get_autori())
+            t.append(std::get<1>(n));
+        if(t.indexOf(autori[s].get_nc()) != -1)
         {
-
             articoliAutore.append(a);
         }
     }
@@ -232,7 +238,10 @@ void genericListDialog::fill_byAuthorPriceHigh(int s)
     QVector<Articolo> articoliAutore;
     foreach(Articolo a, articoli)
     {
-        if(a.get_autori().indexOf(autori[s].get_nc()) != -1)
+        QVector<QString> t;
+        foreach(std::tuple n, a.get_autori())
+            t.append(std::get<1>(n));
+        if(t.indexOf(autori[s].get_nc()) != -1)
         {
 
             articoliAutore.append(a);
@@ -254,7 +263,10 @@ void genericListDialog::fill_byAuthorYear(int s)
     QVector<Articolo> articoliAutore;
     foreach(Articolo a, articoli)
     {
-        if(a.get_autori().indexOf(autori[s].get_nc()) != -1)
+        QVector<QString> t;
+        foreach(std::tuple n, a.get_autori())
+            t.append(std::get<1>(n));
+        if(t.indexOf(autori[s].get_nc()) != -1)
         {
 
             articoliAutore.append(a);
@@ -274,7 +286,10 @@ void genericListDialog::fill_filterAuthorYear(int s, int year)
     ui->generic_list->clear();
     foreach(Articolo a, articoli)
     {
-        if(a.get_autori().indexOf(autori[s].get_nc()) != -1 && a.get_data().year() == year)
+        QVector<QString> t;
+        foreach(std::tuple n, a.get_autori())
+            t.append(std::get<1>(n));
+        if(t.indexOf(autori[s].get_nc()) != -1 && a.get_data().year() == year)
         {
 
             ui->generic_list->addItem(a.get_nome() + " | " + QString::number(year));
@@ -288,7 +303,10 @@ void genericListDialog::fill_byAuthorSpecial(int i)
     QVector<Articolo> unordered;
     foreach(Articolo a, articoli)
     {
-        if(a.get_autori().indexOf(autori[i].get_nc()) != -1)
+        QVector<QString> t;
+        foreach(std::tuple n, a.get_autori())
+            t.append(std::get<1>(n));
+        if(t.indexOf(autori[i].get_nc()) != -1)
             unordered.append(a);
     }
     unordered = sorting::bubblesortyeararticolo(unordered);

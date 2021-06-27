@@ -59,12 +59,10 @@ void json_ops::readfromjson()
         ctmp.set_id(QString::fromStdString(j["conferenze"][i]["id"]));
         ctmp.set_nome(QString::fromStdString(j["conferenze"][i]["nome"]));
         ctmp.set_luogo(QString::fromStdString(j["conferenze"][i]["luogo"]));
-
         for(unsigned int l = 0; l < j["conferenze"][i]["organizzatori"].size(); l++)
         {
-            genericQStringTupleVector.append(std::make_tuple(QString::fromStdString(j["conferenze"][i]["organizzatori"][l]["id"]), QString::fromStdString(j["conferenze"][i]["organizzatori"][l]["nome"])));
+            genericQStringTupleVector.append(std::make_tuple(QString::fromStdString(j["conferenze"][i]["organizzatori"][l]["id"]), QString::fromStdString(j["conferenze"][i]["organizzatori"][l]["nc"])));
         }
-
         ctmp.set_organizzatori(genericQStringTupleVector);
         genericQStringTupleVector.clear();
         ctmp.set_data(QDate::fromString(QString::fromStdString(j["conferenze"][i]["data"]), "dd-MM-yyyy"));
@@ -95,9 +93,9 @@ void json_ops::readfromjson()
         atmp.set_prezzo(j["articoli"][i]["prezzo"]);
 
         for(unsigned int l = 0; l < j["articoli"][i]["autori_articolo"].size(); l++)
-            genericQStringVector.append(QString::fromStdString(j["articoli"][i]["autori_articolo"][l]));
-        atmp.set_autori(genericQStringVector);
-        genericQStringVector.clear();
+            genericQStringTupleVector.append(std::make_tuple(QString::fromStdString(j["articoli"][i]["autori_articolo"][l]["id"]), QString::fromStdString(j["articoli"][i]["autori_articolo"][l]["nc"])));
+        atmp.set_autori(genericQStringTupleVector);
+        genericQStringTupleVector.clear();
 
         for(unsigned int l = 0; l < j["articoli"][i]["keywords"].size(); l++)
             genericQStringVector.append(QString::fromStdString(j["articoli"][i]["keywords"][l]));
@@ -169,8 +167,10 @@ void json_ops::writearticolo(Articolo a)
     json_data["articoli"][i]["nome_origine"] = a.get_nome_origine().toStdString();
 
     for(int j = 0; j<a.get_autori().size(); j++)
-        json_data["articoli"][i]["autori_articolo"][j] = a.get_autori()[j].toStdString();
-
+    {
+        json_data["articoli"][i]["autori_articolo"][j]["id"] = std::get<0>(a.get_autori()[j]).toStdString();
+        json_data["articoli"][i]["autori_articolo"][j]["nc"] = std::get<1>(a.get_autori()[j]).toStdString();
+    }
     for(int j = 0; j < a.get_keywords().size(); j++)
         json_data["articoli"][i]["keywords"][j] = a.get_keywords()[j].toStdString();
 

@@ -4,7 +4,7 @@ Articolo::Articolo() {}
 
 //Getters
 int Articolo::get_pagine() {return pagine;}
-QVector<QString> Articolo::get_autori() {return autori_articolo;}
+QVector<std::tuple<QString, QString>> Articolo::get_autori() {return autori_articolo;}
 QVector<QString> Articolo::get_keywords() {return keywords;}
 QVector<QString> Articolo::get_correlati() {return correlati;}
 double Articolo::get_prezzo() {return prezzo;}
@@ -15,7 +15,7 @@ QDate Articolo::get_data() {return data;}
 //Setters
 
 void Articolo::set_pagine(int p) {pagine = p;}
-void Articolo::set_autori(QVector<QString> a) {autori_articolo = a;}
+void Articolo::set_autori(QVector<std::tuple<QString, QString>> a) {autori_articolo = a;}
 void Articolo::set_keywords(QVector<QString> k) {keywords = k;}
 void Articolo::set_correlati(QVector<QString> c) {correlati = c;}
 void Articolo::set_prezzo(float p) {prezzo = p;}

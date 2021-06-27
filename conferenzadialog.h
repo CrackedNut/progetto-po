@@ -32,10 +32,10 @@ private:
 
     QString id, nome, luogo;
     QDate data;
-    QVector<QString> organizzatori;
+    QVector<std::tuple<QString, QString>> organizzatori;
     int partecipanti;
 
-    void refresh_list(QVector<QString>, QListWidget*);
+    void refresh_list(QVector<std::tuple<QString,QString>>, QListWidget*);
 };
 
 #endif // CONFERENZADIALOG_H

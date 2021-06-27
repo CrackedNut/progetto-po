@@ -96,7 +96,10 @@ double autoreDialog::mediaArticoli(Autore a)
     double tot = 0;
     foreach(Articolo art, articoli)
     {
-        if(art.get_autori().indexOf(a.get_nc()) != -1)
+        QVector<QString> t;
+        foreach(std::tuple n, art.get_autori())
+            t.append(std::get<0>(n));
+        if(t.indexOf(a.get_nc()) != -1)
         {
             c++;
             tot += art.get_prezzo();

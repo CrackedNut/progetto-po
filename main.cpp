@@ -11,11 +11,7 @@ int main(int argc, char *argv[])
     {
         qDebug() << "exists";
         try{json_ops::readfromjson();}
-#if defined(_WIN32) || defined(__APPLE__)
-        catch(errno_t){json_ops::createjson(); json_ops::readfromjson();}
-#elif defined(__linux__)
-        catch(error_t){json_ops::createjson(); json_ops::readfromjson();}
-#endif
+        catch(int){json_ops::createjson(); json_ops::readfromjson();}
     }
     else
     {

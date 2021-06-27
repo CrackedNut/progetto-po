@@ -39,13 +39,15 @@ private:
     Ui::articoloDialog *ui;
 
     void refresh_list(QVector<QString>, QListWidget*);
+    void refresh_list(QVector<std::tuple<QString,QString>>, QListWidget*);
     void add_correlati();
     void remove_correlati(QString, QString);
     void add_external_correlati();
 
     QString id, nome, nome_origine;
     int pagine;
-    QVector<QString> autoriarticolo, keywords, correlati;
+    QVector<QString> keywords, correlati;
+    QVector<std::tuple<QString, QString>> autoriarticolo;
     double prezzo;
     bool origine; //0 rivista 1 conferenza
     QDate data;

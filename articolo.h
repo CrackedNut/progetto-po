@@ -9,7 +9,7 @@ public:
     Articolo();
 
     int get_pagine();
-    QVector<QString> get_autori();
+    QVector<std::tuple<QString, QString>> get_autori();
     QVector<QString> get_keywords();
     QVector<QString> get_correlati();
     double get_prezzo();
@@ -18,7 +18,7 @@ public:
     QDate get_data();
 
     void set_pagine(int);
-    void set_autori(QVector<QString>);
+    void set_autori(QVector<std::tuple<QString, QString>>);
     void set_keywords(QVector<QString>);
     void set_correlati(QVector<QString>);
     void set_prezzo(float);
@@ -28,7 +28,8 @@ public:
     void set_data(QDate);
 private:
     int pagine;
-    QVector<QString> autori_articolo, keywords, correlati;
+    QVector<QString> keywords, correlati;
+    QVector<std::tuple<QString, QString>> autori_articolo;
     double prezzo;
     bool origine; //true = conferenza, false = rivista
     QString nome_origine;

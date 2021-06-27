@@ -56,9 +56,16 @@ void articoloDialog::refresh_list(QVector<QString> v, QListWidget* w)
         w->addItem(a);
 }
 
-void articoloDialog::on_autori_plus_clicked()
+void articoloDialog::refresh_list(QVector<std::tuple<QString,QString>> v, QListWidget* w)
 {
-    lineInputDialog dialog(nullptr, &autoriarticolo);
+    w->clear();
+    foreach(std::tuple a, v)
+        w->addItem(std::get<0>(a) + " | " + std::get<1>(a));
+}
+
+void articoloDialog::on_autori_plus_clicked()
+{   
+    selectorDialog dialog(nullptr, &autoriarticolo, "autori");
     dialog.exec();
     refresh_list(autoriarticolo, ui->autori_box);
 }
@@ -156,7 +163,6 @@ void articoloDialog::fill_info(Articolo a)
     ui->id_box->setText(a.get_id());
     ui->titolo_box->setText(a.get_nome());
     ui->pagine_box->setValue(a.get_pagine());
-    ui->autori_box->addItems(a.get_autori());
     ui->keywords_box->addItems(a.get_keywords());
     ui->correlati_box->addItems(a.get_correlati());
     ui->conferenza_radio->setCheckable(a.get_origine());
@@ -166,6 +172,10 @@ void articoloDialog::fill_info(Articolo a)
     ui->prezzo_box->setValue(a.get_prezzo());
     ui->nome_origine_box->setText(a.get_nome_origine());
     ui->data_box->setDate(a.get_data());
+    foreach(std::tuple t, a.get_autori())
+    {
+        ui->autori_box->addItem(std::get<0>(t) + " | " + std::get<1>(t));
+    }
 }
 
 void articoloDialog::switchUiElements()

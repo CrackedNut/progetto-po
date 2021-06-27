@@ -12,7 +12,7 @@ class selectorDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit selectorDialog(QWidget *parent = nullptr, QVector<QString>* v = nullptr, QString a = "");
+    explicit selectorDialog(QWidget *parent = nullptr, QVector<std::tuple<QString, QString>>* v = nullptr, QString a = "");
     ~selectorDialog();
 
 private slots:
@@ -21,6 +21,7 @@ private slots:
 private:
     Ui::selectorDialog *ui;
     QVector<QString>* vs;
+    QVector<std::tuple<QString, QString>>* vst;
     QString arg;
 };
 
